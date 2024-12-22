@@ -1,0 +1,351 @@
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce {
+  animation: bounce 0.6s ease-in-out;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Sans MS", "Arial", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.game-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.instructions {
+  font-size: 24px;
+  color: #ff5733;
+  margin-bottom: 10px;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #900c3f;
+}
+
+.shapes-container,
+.outlines-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.shape-card {
+  width: 80px;
+  height: 80px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: grab;
+  transition: transform 0.2s ease-in-out;
+}
+
+.shape-card:active {
+  cursor: grabbing;
+}
+
+.outline {
+  width: 100px;
+  height: 100px;
+  border: 2px dashed #333;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.outline:hover {
+  box-shadow: 0 0 15px #ff5733;
+}
+
+.landing-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd1dc, #f9f7d9);
+  width: 100vw;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ff5733;
+  margin-bottom: 30px;
+}
+
+.loading-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ff5733;
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.start-button {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #ff5733;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #c70039;
+}
+
+.completion-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #c9f7f5, #f3c9f7);
+}
+
+.completion-screen h1 {
+  font-size: 50px !important;
+}
+
+.completion-screen button {
+  z-index: 99;
+}
+h1 {
+  font-size: 50px;
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes confettiFall {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.confetti {
+  animation: confettiFall 3s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .instructions {
+    font-size: 18px;
+  }
+
+  .scoreboard {
+    font-size: 14px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .shapes-container,
+  .outlines-container {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .shape-card {
+    width: 50px;
+    height: 50px;
+  }
+
+  .outline {
+    width: 60px;
+    height: 60px;
+  }
+
+  .start-button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .title {
+    font-size: 30px;
+  }
+
+  .instructions {
+    font-size: 20px;
+  }
+
+  .scoreboard {
+    font-size: 16px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .shapes-container,
+  .outlines-container {
+    justify-content: space-evenly;
+  }
+
+  .shape-card {
+    width: 60px;
+    height: 60px;
+  }
+
+  .outline {
+    width: 80px;
+    height: 80px;
+  }
+
+  .start-button {
+    font-size: 18px;
+    padding: 9px 18px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .instructions {
+    font-size: 24px;
+  }
+
+  .scoreboard {
+    font-size: 18px;
+  }
+
+  .shapes-container,
+  .outlines-container {
+    justify-content: space-between;
+  }
+
+  .shape-card {
+    width: 80px;
+    height: 80px;
+  }
+
+  .outline {
+    width: 100px;
+    height: 100px;
+  }
+
+  .start-button {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+}
