@@ -72,6 +72,7 @@ function GameScreen({ completeGame }) {
         </p>
         <p>Attempts: {attempts}</p>
       </div>
+      <h2>Shapes</h2>
       <div className="shapes-container">
         {shapes.map((shape) => (
           <ShapeCard
@@ -81,6 +82,8 @@ function GameScreen({ completeGame }) {
           />
         ))}
       </div>
+      <h2>Outlines</h2>
+
       <div className="outlines-container">
         {outlines.map((outline) => (
           <Outline
