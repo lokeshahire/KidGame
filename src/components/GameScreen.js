@@ -23,6 +23,7 @@ function GameScreen({ completeGame }) {
   const [attempts, setAttempts] = useState(0);
   const [matchedOutlines, setMatchedOutlines] = useState({});
   const [matchedShapes, setMatchedShapes] = useState([]);
+  const [currentTouchShape, setCurrentTouchShape] = useState(null);
 
   useEffect(() => {
     const shuffledShapes = [...shapesData].sort(() => Math.random() - 0.5);
@@ -33,18 +34,23 @@ function GameScreen({ completeGame }) {
   }, []);
 
   const handleDrop = (shapeName, outlineName) => {
-    if (matchedShapes.includes(shapeName)) {
+    // For touch interactions, use the currentTouchShape state
+    const effectiveShapeName = shapeName || currentTouchShape;
+
+    if (!effectiveShapeName || matchedShapes.includes(effectiveShapeName)) {
       return;
     }
 
     setAttempts((prevAttempts) => prevAttempts + 1);
 
-    if (shapeName === outlineName) {
+    if (effectiveShapeName === outlineName) {
       setMatches((prevMatches) => prevMatches + 1);
       new Audio(correctSound).play();
 
-      setMatchedShapes((prev) => [...prev, shapeName]);
-      const matchedShape = shapesData.find((shape) => shape.name === shapeName);
+      setMatchedShapes((prev) => [...prev, effectiveShapeName]);
+      const matchedShape = shapesData.find(
+        (shape) => shape.name === effectiveShapeName
+      );
       setMatchedOutlines((prev) => ({
         ...prev,
         [outlineName]: matchedShape.matchImg,
@@ -60,7 +66,9 @@ function GameScreen({ completeGame }) {
 
   return (
     <div className="game-screen">
-      <h2 className="instructions">Match the shapes to their outlines!</h2>
+      <h2 className="instructions">
+        Match the shapes to their outlines! 11111
+      </h2>
       <div className="scoreboard">
         <p>
           Matches: {matches}/{shapes.length}
@@ -69,7 +77,11 @@ function GameScreen({ completeGame }) {
       </div>
       <div className="shapes-container">
         {shapes.map((shape) => (
-          <ShapeCard key={shape.id} shape={shape} />
+          <ShapeCard
+            key={shape.id}
+            shape={shape}
+            setCurrentTouchShape={setCurrentTouchShape}
+          />
         ))}
       </div>
       <div className="outlines-container">

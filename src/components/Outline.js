@@ -14,13 +14,20 @@ const outlineImages = {
 
 function Outline({ name, onDrop, matchedImg }) {
   const handleDrop = (e) => {
-    const shapeName = e.dataTransfer.getData("shapeName");
+    const shapeName = e.dataTransfer
+      ? e.dataTransfer.getData("shapeName")
+      : null;
+
     const outlineElement = e.target;
 
     if (shapeName === name) {
       Bounce.apply(outlineElement);
     }
     onDrop(shapeName, name);
+  };
+
+  const handleTouchEnd = () => {
+    onDrop(null, name);
   };
 
   const handleDragOver = (e) => {
@@ -32,6 +39,7 @@ function Outline({ name, onDrop, matchedImg }) {
       className="outline"
       onDrop={handleDrop}
       onDragOver={handleDragOver}
+      onTouchEnd={handleTouchEnd}
       style={{
         backgroundImage: `url(${matchedImg || outlineImages[name]})`,
         backgroundSize: "contain",
