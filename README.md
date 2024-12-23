@@ -2,7 +2,7 @@
 
 ## Screenshots
 
-![ Screenshot](https://github.com/user-attachments/assets/057e5c0c-717b-4ba8-b048-bf5133b40d21)
+![ Screenshot](https://github.com/user-attachments/assets/043aa71e-f231-4f3b-9b76-4f9a73584167)
 
 ## Live Demo
 
