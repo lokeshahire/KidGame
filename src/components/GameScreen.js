@@ -34,7 +34,6 @@ function GameScreen({ completeGame }) {
   }, []);
 
   const handleDrop = (shapeName, outlineName) => {
-    // For touch interactions, use the currentTouchShape state
     const effectiveShapeName = shapeName || currentTouchShape;
 
     if (!effectiveShapeName || matchedShapes.includes(effectiveShapeName)) {
@@ -66,9 +65,7 @@ function GameScreen({ completeGame }) {
 
   return (
     <div className="game-screen">
-      <h2 className="instructions">
-        Match the shapes to their outlines! 11111
-      </h2>
+      <h2 className="instructions">Match the shapes to their outlines!</h2>
       <div className="scoreboard">
         <p>
           Matches: {matches}/{shapes.length}
