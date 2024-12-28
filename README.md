@@ -6,7 +6,7 @@
 
 ## Live Demo
 
-You can try the live demo here: [Demo](https://frontend-lokeshahire-lokeshahires-projects.vercel.app/)
+You can try the live demo here: [Demo](https://kid-game-lokesh.vercel.app)
 
 ---
 
